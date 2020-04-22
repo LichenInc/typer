@@ -1,14 +1,171 @@
 * {
   margin: 0;
 }
-
-canvas {
-  background: #eee;
-  display: block;
+body.body-style {
+  background: #ffd661;
+  overflow: hidden;
+  font-family: 'Red Hat Text', sans-serif;
 }
-
+.signature-background{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  -o-object-fit: contain;
+  object-fit: contain;
+  -o-object-position: center;
+  object-position: center;
+  opacity: 0.05;
+  top: 0%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 0
+}
+canvas {
+  display: block;
+  z-index: 1;
+  position: relative;
+}
 .btn-center {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 30px;
+  left: 30px;
+  padding: 20px;
+  font-size: 20px;
+  min-width: 250px;
+  outline: none;
+  background-color: #2196F3;
+  color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  z-index: 10;
+  font-family: 'Red hat text', sans-serif;
+}
+
+.modal-button-hidden{
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  position: absolute;
+}
+.modal-button-close {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  position: absolute;
+}
+.modal-button-continue {
+  padding: 20px;
+  font-size: 20px;
+  width: 250px;
+  outline: none;
+  border: none;
+  background-color: #2196F3;
+  color: white;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-family: 'Paytone One', sans-serif;
+  font-weight: normal;
+}
+/* MODAL */
+.modal:target .modal-dialog{
+  -webkit-transform: translate(0, -40vh);
+  -ms-transform: translate(0, -40vh);
+  transform: translate(0, -40vh);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  top: 20%;
+}
+.modal:target::before{
+  display: block;
+}
+.modal::before{
+  content: "";
+  display: none;
+  background: rgba(0,0,0,.6);
+  position: fixed;vv
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10;
+}
+.modal::before{
+  content: "";
+  display: none;
+  background: rgba(0,0,0,.6);
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10;
+}
+
+/* // Modal Dialog
+// ---------------------- */
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(0,0,0,.6);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  display: flex;
+}
+
+.modal-window:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-window>div {
+  width: 400px;
+  position: relative;
+  margin: auto;
+  padding: 2rem;
+  background: #fff;
+  color: #444;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+.modal-window>div p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#scoreText, #livesText {
+  font-weight: bold;
+}
+.modal-window h1 {
+  font-weight: normal;
+  font-family: 'Paytone One', sans-serif;
+}
+
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 70px;
+  text-decoration: none;
+}
+
+.modal-close:hover {
+  color: #000;
+}
+
+.modal-window h1 {
+  font-size: 150%;
+  margin: 0 0 15px;
 }

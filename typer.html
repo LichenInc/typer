@@ -4,16 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <title>Typer</title>
+  <title>Typer - Lichen Test</title>
   <meta name="description" content="A tower defense like typing game">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Paytone+One|Red+Hat+Text:400,400i,700&display=swap">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="typer.css">
   <script>
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
     ga('create', 'UA-122994978-1', 'auto');
     ga('send', 'pageview');
   </script>
-  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <!-- <script async src='https://www.google-analytics.com/analytics.js'></script> -->
   <script async src="https://kit.fontawesome.com/a1c4b21e48.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/fpsmeter/0.3.1/fpsmeter.min.js"></script>
   <script defer src="https://berkerol.github.io/libraries/canvas.js"></script>
@@ -21,9 +24,22 @@
   <script defer src="typer.js"></script>
 </head>
 
-<body>
-  <button type="button" class="btn btn-info btn-lg btn-center" onclick="changeCase()" accesskey="c"><i class="fas fa-font"></i> <u>C</u>ase <span id="change-case-text"></span>sensitive</button>
-  <canvas id="canvas">Your browser doesn't support HTML5.</canvas>
+<body class='body-style'>
+  <img class='signature-background', src='signature-classe-maison.svg', alt='classe-maison', width='200px'></img>
+  <div id="open-modal" class="modal-window">
+    <div>
+      <a id='modal-button-close', href="#modal-close" title="Close" class="modal-button-close">close &times;</a>
+      <h1>Tu as perdu une vie</h1>
+      <p> Ton score: <span id='scoreText'></span></p>
+
+      <p> Il te reste <span id='livesText'></span></p>
+      <!-- <div>The quick brown fox jumped over the lazy dog.</div> -->
+      <button id='continueButton', type="button" class="modal-button-continue" onclick="continueGame()">Continuer à jouer</button>
+    </div>
+  </div>
+  <a id='modal-button', href="#open-modal", class="modal-button-hidden">Open Modal</a>
+  <button type="button" class="btn-center" onclick="changeCase()" accesskey="c"><i class="fas fa-font"></i> <span id="change-case-text"></span> à la <u>C</u>ase</button>
+  <canvas id="canvas", class='animated faster'>Your browser doesn't support HTML5.</canvas>
 </body>
 
 </html>
